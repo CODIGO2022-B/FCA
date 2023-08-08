@@ -24,4 +24,4 @@ Si tienes alguna pregunta, sugerencia o simplemente deseas conversar sobre desar
 
 ¡Gracias por visitar y ser parte de esta comunidad creativa!
 
-&copy; [Tu Nombre] | 2023
+&copy; EM | 2023
