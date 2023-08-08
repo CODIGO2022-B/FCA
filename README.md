@@ -1,6 +1,6 @@
 # Bienvenido a mi Página Web 🌐
 
-![Vista previa de la página web](url_de_la_imagen.png)
+![Vista previa de la página web](img/presentacion.png)
 
 ## Acerca de
 
@@ -20,7 +20,7 @@ Si compartes mi entusiasmo por la creación web y deseas colaborar, ¡estoy emoc
 
 ## Contacto
 
-Si tienes alguna pregunta, sugerencia o simplemente deseas conversar sobre desarrollo web, no dudes en contactarme a través de [mi sitio web](https://www.tusitio.com) o mis redes sociales.
+Si tienes alguna pregunta, sugerencia o simplemente deseas conversar sobre desarrollo web, no dudes en contactarme a través de [mi sitio web](https://codigo2022-b.github.io/FCA/) o mis redes sociales.
 
 ¡Gracias por visitar y ser parte de esta comunidad creativa!
 
