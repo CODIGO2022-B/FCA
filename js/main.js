@@ -115,7 +115,39 @@
     
 })(jQuery);
 
-    function submitForm(event) {
+    // Función para mostrar los comentarios almacenados en localStorage
+function loadStoredComments() {
+    const storedComments = JSON.parse(localStorage.getItem("comments")) || [];
+    const messagesContainer = document.getElementById("messagesContainer");
+
+    storedComments.forEach(comment => {
+        const messageDiv = createMessageDiv(comment.name, comment.message, comment.avatar);
+        messagesContainer.appendChild(messageDiv);
+    });
+}
+
+// Función para crear el div de un mensaje
+function createMessageDiv(name, message, avatar) {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message-box", "border", "rounded", "p-2");
+
+    const avatarDiv = document.createElement("div");
+    avatarDiv.classList.add("avatar");
+    avatarDiv.style.backgroundImage = `url(${avatar})`;
+
+    const strongTag = document.createElement("strong");
+    strongTag.textContent = name + ":";
+
+    const messageText = document.createTextNode(" " + message);
+
+    messageDiv.appendChild(avatarDiv);
+    messageDiv.appendChild(strongTag);
+    messageDiv.appendChild(messageText);
+
+    return messageDiv;
+}
+
+function submitForm(event) {
     event.preventDefault();
 
     const nameInput = document.getElementById("nameInput");
@@ -124,67 +156,45 @@
     const customAvatarInput = document.getElementById("customAvatar");
     const messagesContainer = document.getElementById("messagesContainer");
 
-    // Verificar si los campos están llenos antes de agregar el mensaje.
     if (nameInput.value.trim() !== "" && messageTextarea.value.trim() !== "") {
-        // Limitar el nombre a un máximo de 15 caracteres.
         const name = nameInput.value.trim().slice(0, 15);
+        const selectedAvatar = avatarSelect.value || "img/avatares/avatar_predeterminado.jpg";
 
-        // Obtener la ruta del avatar seleccionado por el usuario o establecer el avatar predeterminado
-        const selectedAvatar = avatarSelect.value || 'img/avatares/avatar_predeterminado.jpg';
-
-        // Obtener el archivo de imagen personalizado cargado por el usuario
         const customAvatarFile = customAvatarInput.files[0];
         let customAvatarPath = null;
 
-        // Verificar si el usuario cargó una imagen personalizada
         if (customAvatarFile) {
-            // Generar una URL para la imagen personalizada
             customAvatarPath = URL.createObjectURL(customAvatarFile);
-
-            // Guardar la URL en el almacenamiento local (localStorage)
             localStorage.setItem("customAvatar", customAvatarPath);
         }
 
-        // Crear el div del mensaje
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("message-box", "border", "rounded", "p-2");
-
-        // Crear un div para mostrar el avatar seleccionado o el avatar personalizado
-        const avatarDiv = document.createElement("div");
-        avatarDiv.classList.add("avatar");
-        avatarDiv.style.backgroundImage = customAvatarPath ? `url(${customAvatarPath})` : `url(${selectedAvatar})`;
-
-        const strongTag = document.createElement("strong");
-        strongTag.textContent = name + ":";
-
-        const messageText = document.createTextNode(" " + messageTextarea.value);
-
-        messageDiv.appendChild(avatarDiv); // Agregar el div del avatar al mensaje
-        messageDiv.appendChild(strongTag);
-        messageDiv.appendChild(messageText);
-
-        // Agregar el botón para eliminar el comentario
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("btn", "btn-danger", "ml-2");
-        deleteButton.textContent = "Delete";
-        deleteButton.onclick = function () {
-            messagesContainer.removeChild(messageDiv);
+        const comment = {
+            name: name,
+            message: messageTextarea.value,
+            avatar: customAvatarPath ? customAvatarPath : selectedAvatar
         };
 
-        messageDiv.appendChild(deleteButton);
+        const storedComments = JSON.parse(localStorage.getItem("comments")) || [];
+        storedComments.push(comment);
+        localStorage.setItem("comments", JSON.stringify(storedComments));
 
+        const messageDiv = createMessageDiv(comment.name, comment.message, comment.avatar);
         messagesContainer.appendChild(messageDiv);
 
-        // Limpiar los campos después de agregar el mensaje.
         nameInput.value = "";
         messageTextarea.value = "";
-        customAvatarInput.value = ""; // Limpiar el campo de carga de imagen personalizada
+        customAvatarInput.value = "";
     }
 }
 
-document.getElementById("nameInput").addEventListener("input", function() {
-    if (this.value.length > 15) {
-        this.value = this.value.slice(0, 15);
-    }
-});
+// Cargar comentarios almacenados al cargar la página
+window.onload = function() {
+    loadStoredComments();
 
+    // Limitar la longitud del nombre
+    document.getElementById("nameInput").addEventListener("input", function() {
+        if (this.value.length > 15) {
+            this.value = this.value.slice(0, 15);
+        }
+    });
+};
