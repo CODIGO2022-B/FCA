@@ -1,6 +1,10 @@
 # Bienvenido a mi Página Web 🌐
 
 ![Vista previa de la página web](img/presentacion.png)
+[![Build Status](https://img.shields.io/travis/CODIGO2022-B/FCA.svg)](https://travis-ci.org/CODIGO2022-B/FCA)
+[![Coverage](https://img.shields.io/codecov/c/github/CODIGO2022-B/FCA.svg)](https://codecov.io/gh/CODIGO2022-B/FCA)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/CODIGO2022-B/FCA/releases/tag/1.0.0)
 
 ## Acerca de
 
