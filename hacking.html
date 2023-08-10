@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta property="og:title" content="Página Peligrosa">
+    <meta property="og:description" content="¡Advertencia! Esta página contiene información peligrosa.">
+    <meta property="og:image" content="https://static.vecteezy.com/system/resources/previews/017/120/715/large_2x/hacker-concept-unknown-man-stealing-data-from-the-email-while-using-laptop-vector.jpg">
+    <link href="https://cdn-icons-png.flaticon.com/512/6463/6463383.png" rel="icon">
+    <title>HACKING</title>
+    <style>
+        /* Estilos CSS aquí */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background-image 0.5s;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            background-image: url('https://media.tenor.com/KBe_nw4IL2QAAAAC/matrix-code.gif');
+        }
+
+        .info-box {
+            background-color: rgba(0, 128, 0, 0.7); /* Color verde semitransparente */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: left;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: white; /* Texto blanco para destacar en el fondo */
+        }
+
+        p {
+            margin: 10px 0;
+            color: white; /* Texto blanco para destacar en el fondo */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-box">
+        <h1>☠ INFORMACIÓN DEL USUARIO ☠</h1><br>
+        <p><span id="hora"></span></p>
+        <p><span id="ip"></span></p>
+        <p><span id="ubicacion"></span></p>
+        <p><span id="dispositivo"></span></p>
+        <p><span id="navegador"></span></p>
+        <p><span id="resolucion"></span></p>
+        <p><span id="tiempo"></span></p>
+    </div>
+    <script>
+
+        function mostrarHoraLocal() {
+            const fecha = new Date();
+            const opcionesHora = { timeZoneName: 'short' };
+            const horaLocal = fecha.toLocaleTimeString('es-ES', opcionesHora);
+            mostrarContenidoGradualmente(document.getElementById('hora'), `𝐇𝐨𝐫𝐚: ${horaLocal}`, 50);
+        }
+
+        function mostrarDireccionIP() {
+            fetch('https://api64.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const direccionIP = data.ip;
+                    mostrarContenidoGradualmente(document.getElementById('ip'), `𝐃𝐢𝐫𝐞𝐜𝐜𝐢𝐨𝐧 𝐈𝐏: ${direccionIP}`, 50);
+                })
+                .catch(error => {
+                    console.error('Error al obtener la dirección IP: ', error);
+                });
+        }
+
+        function mostrarUbicacion() {
+            fetch('https://ipinfo.io/json')
+                .then(response => response.json())
+                .then(data => {
+                    const ubicacion = `${data.city}, ${data.region}, ${data.country}`;
+                    mostrarContenidoGradualmente(document.getElementById('ubicacion'), `𝐔𝐛𝐢𝐜𝐚𝐜𝐢𝐨𝐧: ${ubicacion}`, 50);
+                })
+                .catch(error => {
+                    console.error('Error al obtener la ubicación: ', error);
+                });
+        }
+
+        function mostrarTipoDeDispositivo() {
+            const userAgent = navigator.userAgent;
+            let dispositivo = '';
+
+            if (userAgent.match(/Android/i)) {
+                dispositivo = 'Android';
+            } else if (userAgent.match(/iPhone|iPad|iPod/i)) {
+                dispositivo = 'iOS';
+            } else if (userAgent.match(/Windows/i)) {
+                dispositivo = 'Windows';
+            } else if (userAgent.match(/Mac/i)) {
+                dispositivo = 'Mac';
+            } else {
+                dispositivo = 'Desconocido';
+            }
+
+            mostrarContenidoGradualmente(document.getElementById('dispositivo'), `𝐃𝐢𝐬𝐩𝐨𝐬𝐢𝐭𝐢𝐯𝐨: ${dispositivo}`, 50);
+        }
+
+        function mostrarNavegador() {
+            const navegador = navigator.userAgent;
+            mostrarContenidoGradualmente(document.getElementById('navegador'), `𝐍𝐚𝐯𝐞𝐠𝐚𝐝𝐨𝐫: ${navegador}`, 50);
+        }
+
+        function mostrarResolucionPantalla() {
+            const resolucion = window.innerWidth + 'x' + window.innerHeight;
+            mostrarContenidoGradualmente(document.getElementById('resolucion'), `𝐑𝐞𝐬𝐨𝐥𝐮𝐜𝐢𝐨𝐧 𝐝𝐞 𝐩𝐚𝐧𝐭𝐚𝐥𝐥𝐚: ${resolucion}`, 50);
+        }
+
+
+        function mostrarContenidoGradualmente(elemento, contenido, intervalo) {
+            let index = 0;
+            const intervalId = setInterval(() => {
+                if (index < contenido.length) {
+                    elemento.textContent += contenido.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(intervalId);
+                }
+            }, intervalo);
+        }
+
+        mostrarHoraLocal();
+        mostrarDireccionIP();
+        mostrarUbicacion();
+        mostrarTipoDeDispositivo();
+        mostrarNavegador();
+        mostrarResolucionPantalla();
+
+        document.addEventListener('input', () => {
+            mostrarHoraLocal();
+            mostrarDireccionIP();
+            mostrarUbicacion();
+            mostrarTipoDeDispositivo();
+            mostrarNavegador();
+        });
+
+    </script>
+
+</body>
+</html>
