@@ -1,0 +1,83 @@
+body {
+  transition: background-color 0.5s, color 0.5s;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Modo claro */
+body.light-mode {
+  background-color: #f7f7f7; /* Blanco cremoso */
+  color: #333; /* Texto gris oscuro */
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #222; /* Gris oscuro */
+  color: #f7f7f7; /* Texto blanco cremoso */
+}
+
+.mode-toggle-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1; /* Asegura que el botón esté por encima del contenido */
+}
+
+.mode-toggle-btn {
+  background-color: #333; /* Fondo del botón */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  color: #f7f7f7; /* Icono blanco cremoso */
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .mode-toggle-container {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+.header {
+  text-align: center;
+  position: relative;
+}
+
+.header img {
+  max-width: 100%; /* Ajusta el tamaño de la imagen al ancho del contenedor */
+}
+
+.header {
+  text-align: center;
+  position: relative;
+}
+
+.image-with-title {
+  position: relative;
+}
+
+.image-with-title img {
+  max-width: 100%; /* Ajusta el tamaño de la imagen al ancho del contenedor */
+  display: block;
+  margin: 0 auto;
+}
+
+.image-with-title h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #fff; /* Color del texto del título */
+}
