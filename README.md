@@ -28,4 +28,4 @@ Si tienes alguna pregunta, sugerencia o simplemente deseas conversar sobre desar
 
 ¡Gracias por visitar y ser parte de esta comunidad creativa!
 
-&copy; EM | 2023
+&copy; EMQM | 2023
