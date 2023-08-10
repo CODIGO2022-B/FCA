@@ -45,7 +45,7 @@
             </a>
             <div class="navbar-nav mr-auto py-0">
                 <a href="#ciclos" class="nav-item nav-link">Ciclos</a>                
-                <a href="#comentarios" class="nav-item nav-link">Comentarios</a>
+                <a href="#comentarios" class="nav-item nav-link">Confesiones</a>
                 <a href="#final" class="nav-item nav-link">Creditos</a>
             </div>
         </div>
@@ -124,13 +124,13 @@
                 <div class="col-md-6 p-0 text-center text-md-right">
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
                         <h3 class="mb-3">Examen del Centro Pre UNAC</h3>
-                        <p>El examen final del Centro Preuniversitario UNAC se realizó el sábado 26 de noviembre de 2022 a las 10:00 a.m. El examen constó de 70 preguntas de matemáticas, física, química, biología, lenguaje, literatura, etc. Las preguntas eran de dificultad variada, y requirieron que los estudiantes aplicaran sus conocimientos, logrando ingresar 20 personas. El primer puesto en este examen lo obtuvo "YASURI", quien destacó por su destacado desempeño y conocimiento en todas las áreas evaluadas.</p>
+                        <p>El examen final del Centro Preuniversitario UNAC se llevó a cabo el sábado 26 de noviembre de 2022 a las 10:00 a.m. La evaluación consistió en 70 preguntas abarcando áreas como matemáticas, física, química, biología, lenguaje, literatura, entre otras. Las preguntas presentaron diferentes niveles de dificultad y exigieron a los estudiantes aplicar sus conocimientos, lo que resultó en la admisión de 20 personas. El primer puesto en este examen fue alcanzado por "YASURI", quien se destacó debido a su sobresaliente rendimiento y dominio en todas las áreas evaluadas.</p>
                         <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-female text-primary pr-3"></i>Yasuri</h3>
                         <div class="position-relative">
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                 <div class="col-md-6 p-0 text-center text-md-left">
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
                         <h3 class="mb-3">Examen Ordinario</h3>
-                        <p>El examen ordinario de la UNAC se realizó el sábado 3 de diciembre de 2022 a las 10:00 a.m. El examen constó de 70 preguntas de matemáticas, física, química, biología, lenguaje, literatura, etc. Hubo muchos postulantes, pero solo 90 lograron ingresar. El examen fue difícil, pero los estudiantes que ingresaron demostraron su conocimiento y habilidades. El primer puesto en este examen lo obtuvo "MARTHA JAZMIN", quien destacó por su destacado desempeño y conocimiento en todas las áreas evaluadas.</p>
+                        <p>El examen común de la UNAC tuvo lugar el sábado 3 de diciembre de 2022 a las 10:00 a.m. La evaluación consistió en 70 interrogantes relacionadas con matemáticas, física, química, biología, lenguaje, literatura, y otras materias. A pesar de la considerable cantidad de aspirantes, únicamente 90 lograron ser admitidos. La prueba resultó ser desafiante, sin embargo, los estudiantes que lograron acceder demostraron sus conocimientos y habilidades. El primer puesto en esta evaluación fue alcanzado por "MARTHA JAZMIN", quien se destacó por su sobresaliente desempeño y competencia en todas las áreas evaluadas.</p>
                         <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-female text-primary pr-3"></i>Martha</h3>
                         <div class="position-relative">
                             <a class="btn btn-outline-primary btn-square mr-1" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
@@ -458,61 +458,36 @@
 
 
     <!-- RSVP Start-->
-    <div class="container-fluid py-5" id="comentarios">
-        <div class="container py-5 border rounded">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;"></h6>
-                <h1 class="font-secondary display-4">Bandeja de Comentarios</h1>
-                <i class="far fa-heart text-dark"></i>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="text-center">
-                        <form id="messageForm" onsubmit="submitForm(event)">
-                            <div class="form-group">
-                                <input type="text" class="form-control bg-secondary border-0 py-4 px-3" id="nameInput" placeholder="Nombre o apodo" required="" maxlength="15">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control bg-secondary border-0 py-2 px-3" id="messageTextarea" rows="5" placeholder="Mensaje" required="" style="height: 136px;"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="avatarSelect">Selecciona un avatar:</label>
-                                <select class="form-control" id="avatarSelect">
-                                    <option value="" selected>Selecciona tu avatar</option>
-                                    <option value="img/avatares/avatar_predeterminado.jpg">Avatar Predeterminado</option>
-                                    <option value="img/about-1.jpg">Avatar Anonimo</option>
-                                    <option value="img/about-2.jpg">Avatar anonima</option>
-                                    <!-- Agregar más opciones de avatares si es necesario -->
-                                </select>
-                                <small class="form-text text-muted">Puedes subir tu avatar también:</small>
-                                <input type="file" class="form-control-file" id="customAvatar" accept="image/*">
-                                <small class="form-text text-muted">Formatos aceptados: JPG, JPEG, PNG, GIF</small>
-                            </div>
-                            <div>
-                                <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
+<div class="container-fluid py-5" id="comentarios">
+    <div class="container py-5 border rounded">
+        <div class="section-title position-relative text-center">
+            <h1 class="font-secondary display-4">Confesiones</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center">
+                    <form id="messageForm" action="Confesiones/">
+                        <div>
+                            <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Ir a la Página</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- Section to display messages -->
-            <div class="row justify-content-center mt-5">
-                <div class="col-lg-8">
-                    <h2 class="font-secondary text-center">Mensajes enviados</h2>
-                    <div id="messagesContainer" class="bg-light mt-3 p-3">
-                        <!-- All messages will be added here -->
-                        <div class="message-box border rounded p-2">
-                            <div class="avatar" style="background-image: url('img/Avatares/Avatar_desarollador1.png');"></div>
-                            <span class="sender-name font-weight-bold" style="font-size: 16px;">DESAROLLADOR:</span>
-                            <br>
-                            Me encantaría recibir sus comentarios sobre cómo mejorar esta página. ¿Qué elementos o contenido consideran que deberían incluirse para hacerla más útil y atractiva? ¡Sus opiniones son muy importantes para nosotros! ¡Gracias por tomarse el tiempo de revisar nuestro sitio!
-                        </div>
-                        <!-- Add more message-box divs here with different avatars if needed -->
+        </div>
+        <!-- Section to display messages -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8">
+                <div id="messagesContainer" class="bg-light mt-3 p-3">
+                    <div class="message-box border rounded p-2">
+                        <span class="sender-name font-weight-bold" style="font-size: 16px;">DESAROLLADOR:</span>
+                        <br>
+                        Debido a las solicitudes recibidas, estamos trabajando en la creación de una sección de confesiones. Aquí podrás compartir tus secretos, desahogarte, relatar experiencias que hayas presenciado, y mucho más.
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
      <!--RSVP End -->
 
 
