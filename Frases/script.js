@@ -76,6 +76,8 @@ window.addEventListener('load', function(){
                 this.mouse.x = 0;
                 this.mouse.y = 0;
             }, false);
+            
+            const text = document.getElementById('text'); // Agregué esta línea para obtener el elemento de entrada de texto
             text.addEventListener('keyup', e => {
                 this.text = e.target.value;
                 this.init(this.context);
@@ -120,7 +122,7 @@ window.addEventListener('load', function(){
             }
         }
         render(context){
-            context.clearRect(0, 0, this.width, this.height);
+            context.clearRect(0, 0, this.width, this height);
             for(var i = 0; i < this.particles.length; i++) {
                 var p = this.particles[i];
                 context.fillStyle = p.color;
