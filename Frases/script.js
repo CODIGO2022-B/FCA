@@ -55,6 +55,14 @@ window.addEventListener('load', function(){
                 x: 0,
                 y: 0
             }
+
+                        // Leer el texto de la URL después del slash
+            const urlParams = new URLSearchParams(window.location.search);
+            const textoParam = urlParams.get('texto');
+            if (textoParam) {
+                this.text = decodeURIComponent(textoParam);
+            }
+            
             window.addEventListener("mousemove", event => {
                 this.mouse.x = event.x;
                 this.mouse.y = event.y;
@@ -138,31 +146,4 @@ window.addEventListener('load', function(){
         requestAnimationFrame(animate);
     }
     animate();
-
-});
-    const generateButton = document.getElementById('generateButton');
-    const downloadLink = document.getElementById('downloadLink');
-
-    generateButton.addEventListener('click', () => {
-        // Generar la imagen en el lienzo aquí (mismo código que antes)
-        const dataURL = canvas.toDataURL('image/png');
-        const blob = dataURItoBlob(dataURL);
-
-        // Crear un enlace de descarga
-        const url = window.URL.createObjectURL(blob);
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-    });
-
-    // Función para convertir una Data URL en Blob (misma función que antes)
-    function dataURItoBlob(dataURI) {
-        const byteString = atob(dataURI.split(',')[1]);
-        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-        const ab = new ArrayBuffer(byteString.length);
-        const ia = new Uint8Array(ab);
-        for (let i = 0; i < byteString.length; i++) {
-            ia[i] = byteString.charCodeAt(i);
-        }
-        return new Blob([ab], { type: mimeString });
-    }
 });
