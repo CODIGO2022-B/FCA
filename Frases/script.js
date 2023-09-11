@@ -41,7 +41,7 @@ window.addEventListener('load', function(){
             this.context = context;
             this.width = width;
             this.height = height;
-            this.text = 'hola';
+            this.text = '';
             this.textWidth;
             this.fontSize = 100;
             this.centerX = this.width / 2;
