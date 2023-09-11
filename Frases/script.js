@@ -41,7 +41,7 @@ window.addEventListener('load', function(){
             this.context = context;
             this.width = width;
             this.height = height;
-            this.text = 'Hola';
+            this.text = 'hola';
             this.textWidth;
             this.fontSize = 100;
             this.centerX = this.width / 2;
@@ -76,8 +76,6 @@ window.addEventListener('load', function(){
                 this.mouse.x = 0;
                 this.mouse.y = 0;
             }, false);
-            
-            const text = document.getElementById('text'); // Agregué esta línea para obtener el elemento de entrada de texto
             text.addEventListener('keyup', e => {
                 this.text = e.target.value;
                 this.init(this.context);
@@ -122,7 +120,7 @@ window.addEventListener('load', function(){
             }
         }
         render(context){
-            context.clearRect(0, 0, this.width, this height);
+            context.clearRect(0, 0, this.width, this.height);
             for(var i = 0; i < this.particles.length; i++) {
                 var p = this.particles[i];
                 context.fillStyle = p.color;
@@ -141,4 +139,30 @@ window.addEventListener('load', function(){
     }
     animate();
 
+});
+    const generateButton = document.getElementById('generateButton');
+    const downloadLink = document.getElementById('downloadLink');
+
+    generateButton.addEventListener('click', () => {
+        // Generar la imagen en el lienzo aquí (mismo código que antes)
+        const dataURL = canvas.toDataURL('image/png');
+        const blob = dataURItoBlob(dataURL);
+
+        // Crear un enlace de descarga
+        const url = window.URL.createObjectURL(blob);
+        downloadLink.href = url;
+        downloadLink.style.display = 'block';
+    });
+
+    // Función para convertir una Data URL en Blob (misma función que antes)
+    function dataURItoBlob(dataURI) {
+        const byteString = atob(dataURI.split(',')[1]);
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], { type: mimeString });
+    }
 });
